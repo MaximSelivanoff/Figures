@@ -1,20 +1,20 @@
 ﻿namespace Figures
 {
-    abstract class Figures
+    public abstract class Figure
     {
-        public abstract double GetSquare();
-        public Figures(params double[] lengths)
+        public abstract double GetArea();
+        public Figure(params double[] lengths)
         {
             if(lengths== null)
                 throw new ArgumentNullException(nameof(lengths));
             foreach(var l in lengths)
             {
                 if (l <= 0)
-                    throw new ArgumentException("Arguments or argument must be greater than 0\"");
+                    throw new ArgumentException("Argument must be greater than 0\"");
             }
         }
     }
-    class Circle: Figures
+    public class Circle: Figure
     {
         double radius;
 
@@ -23,13 +23,13 @@
             this.radius = radius;
         }
 
-        public override double GetSquare()
+        public override double GetArea()
         {
             double square = Math.PI * radius * radius;
             return square;
         }
     }
-    class Triangle : Figures
+    public class Triangle : Figure
     {
         double sideA;
         double sideB;
@@ -40,10 +40,10 @@
             this.sideB = sideB;
             this.sideC = sideC;
         }
-        public override double GetSquare()
+        public override double GetArea()
         {
-            double perimeter = (sideA * sideB + sideC) / 2;
-            double square = (perimeter * (perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC));
+            double perimeter = (sideA + sideB + sideC) / 2;
+            double square = Math.Sqrt(perimeter * (perimeter - sideA) * (perimeter - sideB) * (perimeter - sideC));
             return square;
         }
         public bool IsRight()
