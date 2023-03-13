@@ -2,6 +2,9 @@ using Figures;
 
 namespace FiguresTest
 {
+    /// <summary>
+    /// Проверка метода получения площади
+    /// </summary>
     [TestClass]
     public class FiguresTests
     {
@@ -20,6 +23,9 @@ namespace FiguresTest
                 Assert.AreEqual(f.Value, f.Key.GetArea());
             }
         }
+        /// <summary>
+        /// Проверка метода является ли треугольник прямоугольным
+        /// </summary>
         [TestMethod]
         public void RightTriangleTest()
         {

@@ -1,5 +1,8 @@
 ﻿namespace Figures
 {
+    /// <summary>
+    /// общий класс для всех фигур
+    /// </summary>
     public abstract class Figure
     {
         public abstract double GetArea();
